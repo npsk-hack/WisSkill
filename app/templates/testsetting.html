@@ -1,0 +1,43 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="c:/vaibhav/WisSkill/WisSkill-master/app/css/styles.css">
+    <title>Test Entry</title>
+</head>
+<script>
+function submit(){
+    var test_no = document.getElementById('test_no').value
+    var question_no = document.getElementById('question_no').value
+	var question = document.getElementById('question').value
+    var option_a = document.getElementById('option_a').value
+	var option_b = document.getElementById('option_b').value
+	var option_c = document.getElementById('option_c').value
+	var option_d = document.getElementById('option_d').value
+	var correct_option = document.getElementById('correct_option').value
+
+    var sql = `INSERT INTO TestData VALUES ('${test_no}','${question_no}','${question}','${option_a}','${option_b}','${option_c}','${option_d}','${correct_option}');`
+    send_message("its fine")
+	window.location = "c:/vaibhav/WisSkill/WisSkill-master/app/templates/testsetting.html"
+	}
+		
+</script>
+<body>
+<form action="" method="POST">
+<h1 align="center" class="rainbow">Test <input type="text" id="test_no" value = "1" readonly></h1>
+    <fieldset>
+        <legend>Question<input type="text" id="question_no" value = "1" readonly></legend>
+            <textarea rows=8 cols=100 maxlength=1000 id="question"></textarea><br>
+			a): <input type="text" id="option_a" maxlength=200 value=""><br>
+			b): <input type="text" id="option_b" maxlength=200 value=""><br>
+			c): <input type="text" id="option_c" maxlength=200 value=""><br>
+			d): <input type="text" id="option_d" maxlength=200 value=""><br>
+			Correct Option : <select id="correct_option">
+								<option value="a">a</option>
+								<option value="b">b</option>
+								<option value="c">c</option>
+								<option value="d">d</option>
+							 </select><br>
+			<br><button onclick="submit(); return false">Submit</button>
+    </fieldset>
+</form>
+</body>	
+</html>
