@@ -12,6 +12,8 @@ Run pip install -r requirements.txt in the dir in which requirements.txt is pres
 Install Node JS on your computer.
 Navigate to WisSkill\app\nodejs.
 Use npm install to install all the nodejs dependancies.
+### SQL
+Run both the setup files in the databases folder in the app folder.
 
 #### NOTE:
 Base Code has two bugs. One: After enterring all the data in the register page, it does not take you bake to the login page. Clicking submit twice will submit the same request twice. Two: The aproval and deletion of registration requests in home page when logged in as admin does not work.
