@@ -4,13 +4,14 @@ A student-teacher portal. One of its main features is a forum where students can
 
 
 # Setup
-###pip
+### pip
 Install pip. Tutorial on how to do this can be found at https://www.liquidweb.com/kb/install-pip-windows/
 Make sure that pip is installed in the dir in which the web-app is present.
 Run pip install -r requirements.txt in the dir in which requirements.txt is present to install the python dependencies.
-###Node JS
+### Node JS
 Install Node JS on your computer.
 Navigate to WisSkill\app\nodejs.
 Use npm install to install all the nodejs dependancies.
 
-####NOTE: Base Code has two bugs. One: After enterring all the data in the register page, it does not take you bake to the login page. Clicking submit twice will submit the same request twice. Two: The aproval and deletion of registration requests in home page when logged in as admin does not work.
+#### NOTE:
+Base Code has two bugs. One: After enterring all the data in the register page, it does not take you bake to the login page. Clicking submit twice will submit the same request twice. Two: The aproval and deletion of registration requests in home page when logged in as admin does not work.
