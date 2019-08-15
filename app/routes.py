@@ -189,3 +189,18 @@ def logout():
     except KeyError:
         return render_template('login.html')
     return "Error"
+
+def answercheck(s, c):
+        score = 0
+        s = s.replace('&','')
+        s = s.replace('=','')
+        print (s)
+        print (c)
+
+        for x,y in zip(s,c):
+                print (x)
+                print (y)
+                if x == y:
+                        score+=1
+                        score = int (score/2)
+        return score
