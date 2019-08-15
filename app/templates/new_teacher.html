@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:5000/css/styles.css">
+    <title>Register</title>
+</head>
+    
+<script>
+function submit(){
+    var no_of_subjects = parseInt(prompt("How many classes do you teach. NOTE: if you teach the same class two sujects, then consider it as 2 classes. If you are a class teacher and you teach that class a suject, then please count that class as well. (Enter a whole number)"))
+    var temp = ''
+    var subjects = []
+    for(var i=0;i<no_of_subjects;i++){
+        temp = prompt(`${i} class. Please enter the class name and section, followed by the subject you teach. For Example: 8D Biology, or 3C LifeSkills. Please leave no other spaces other than between the class name and the subject. The possible subjects can be refered in http://127.0.0.1:5000/help`)
+        subjects.push(temp)
+    }
+    var name = document.getElementById('name').value
+    var classteacher = document.getElementById('class_teacher').value
+    var teacher_id = document.getElementById('teacher_id').value
+    var username = name.replace(/\s+/g, '').toLowerCase();
+    var sql = `INSERT INTO teachers VALUES ('${name}','${username}','${classteacher}','${subjects}','${teacher_id}');`
+    var string = `Name is ${name}, username is ${username}, classteacher is ${classteacher}, teacher id is ${teacher_id}, she teaches ${subjects}`
+    var msg = {
+        "name": name,
+        "username": username,
+        "class_teacher": classteacher,
+        "teacher_id": teacher_id,
+        "subjects": subjects,
+        "category":"teacher",
+        "sql_statement": sql,
+        "string":string
+    }
+    send_message(msg)
+    window.location = "C:/Users/Anirudh/Desktop/Hackathon/app/templates/login.html"
+}
+function send_message(msg){
+    var request = new XMLHttpRequest;
+    msg = JSON.stringify(msg)
+    request.open("GET", "http://localhost:3000/teacher_requests"+"?msg="+msg, true);
+    request.send(msg)
+}
+</script>
+
+<body>
+    <div class="center"><h1 class="rainbow">Register</h1></div>
+    <fieldset>
+        <legend>Fill in your credentials</legend>
+        <form>
+            Name : <input id="name" type="text"><br>
+            Are you a class teacher? If you are, type the class of which you are the classteacher of. If you aren't, type false. : <input id= class_teacher type="text"><br>
+            Teacher id : <input id=teacher_id type="number"><br>
+        </form>
+        <button onclick="submit(); return false">Submit</button>
+    </fieldset>
+</body>
+
+</html>

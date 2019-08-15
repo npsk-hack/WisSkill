@@ -1,0 +1,4 @@
+[
+    {"name":"Nagalakshmi Abbaraju","username":"nagalakshmiabbaraju","class_teacher":"7B","teacher_id":"12345","subjects":["7B Telugu"],"category":"teacher", "string":"Name is Nagalakshmi Abbaraju, username is nagalakshmiabbaraju, classteacher is 7B, teacher id is 12345, she teaches 7B Telugu"},
+    {"name":"Mahathi","username":"mahathi","class":"4","section":"A","admission_no":"60025","club":"None","vpa":"None","category":"student","string":"Name is Mahathi, username is mahathi, class and section is 4 and A, admission number is 60025, club and vpa is None and None."}
+]

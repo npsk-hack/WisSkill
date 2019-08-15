@@ -1,0 +1,20 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:5000/css/styles.css">
+    <title>Register</title>
+</head>
+<body>
+    <div class="center"><h1 class="rainbow">Register</h1></div>
+    <fieldset>
+        <legend>Register..... Give me your information</legend>
+        <form action=http://127.0.0.1:5000/teacher_student_registration  method="POST">
+            <div style="display: none;">Name: </div><input name="username" type="text" style="display: none;"><br>
+            First, tell me....... Are you a student or a teacher? <select name="category">
+                <option id="student" name="student">Student</option>
+                <option id="teacher" name="teacher">Teacher</option>
+            </select><br>
+            <button formmethod="post" type="submit" formaction="http://127.0.0.1:5000/teacher_student_registration">Submit</button>
+        </form>
+    </fieldset>
+</body>
+</html>

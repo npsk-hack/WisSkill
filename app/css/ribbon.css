@@ -1,0 +1,23 @@
+.ribbon {
+    background: blue;
+    border: none;
+    color: white;
+}
+
+.ribbonbutton{
+    border: none;
+    background: blue;
+    margin-right: 250px;
+}
+
+.whitetxt{
+    color: white;
+}
+
+.marginright {
+    margin-right: 245px
+}
+
+.marginleft {
+    margin-left: 10px;
+}

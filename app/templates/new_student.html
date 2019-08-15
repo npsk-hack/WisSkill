@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:5000/css/styles.css">
+    <title>Register</title>
+</head>
+
+<script>
+function submit(){
+    var name = document.getElementById('name').value
+    var classs = document.getElementById('class').value
+    var section = document.getElementById('section').value
+    var username = name.replace(/\s+/g, '').toLowerCase();
+    var admission_no= document.getElementById('admission_no').value
+    var club = document.getElementById('club').value
+    var vpa = document.getElementById('vpa').value
+    if(club==""){club="None"}
+    if(vpa==""){vpa="None"}
+    var sql = `INSERT INTO students VALUES ('${name}','${username}','${classs}','${section}','${admission_no}','${club}','${vpa}');`
+    var string = `Name is ${name}, username is ${username}, class and section is ${classs} and ${section}, admission number is ${admission_no}, club and vpa is ${club} and ${vpa}.`
+    var msg = {
+        "name": name,
+        "username": username,
+        "class": classs,
+        "section": section,
+        "admission_no":admission_no,
+        "club":club,
+        "vpa": vpa,
+        "category":"student",
+        "sql_statement": sql,
+        "string":string
+    }
+    send_message(msg)
+    window.location = "C:/Users/Anirudh/Desktop/Hackathon/app/templates/login.html"
+}
+function send_message(msg){
+    var request = new XMLHttpRequest;
+    msg = JSON.stringify(msg)
+    request.open("GET", "http://localhost:3000/student_requests"+"?msg="+msg, true);
+    request.send(msg)
+}
+</script>
+
+
+<body>
+    <div class="center"><h1 class="rainbow">Register</h1></div>
+    <fieldset>
+        <legend>Fill in your credentials</legend>
+        <form action=http://127.0.0.1:5000/student_register method="POST">
+            Name : <input id="name" type="text"><br>
+            Grade : <input id=class type="number"><br>
+            Section : <input id=section type="text"><br>
+            Admission Number : <input id=admission_no type="number"><br>
+            Elective Club (Optional) : <input id=club type="text"><br>
+            Elective VPA (Optional) : <input id=vpa type="text"><br>
+        </form>
+        <br><button onclick="submit(); return false">Submit</button>
+    </fieldset>
+</body>
+
+</html>
