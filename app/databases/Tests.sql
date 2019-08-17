@@ -8,8 +8,3 @@ CREATE TABLE `TestData` (
   `option_d` VARCHAR(200) NULL,
   `correct_option` CHAR(1) NULL,
   PRIMARY KEY (`test_no`, `question_no`))
-
-CREATE TABLE `Tests` (
-  `test_no` INT NOT NULL,
-  `teacher_id` INT NOT NULL,
-  PRIMARY KEY (`test_no`))
