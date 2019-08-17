@@ -65,4 +65,49 @@ app.get('/delete_register_request', function(req,res){
     console.log(request,requests)   
 })
 
+app.get('/question_paper', function(req,res){
+    console.log("New question paper")
+    var sql = req.query.request
+    console.log(`SQL is` + sql)
+    var con= mysql.createconnection ({
+        host: "localhost",
+        port: "3306",
+        database: "wizlearn",
+        user: "root",
+        password: "DkFjGh10#"
+    });
+    con.connect(function (err) {
+			if (err) throw err;
+			console.log("Connected!");
+			con.query(sql, function(err,recordset){
+							if err throw err;
+							console.log("1 rec inserted");
+							});
+			});
+    mysql.close()
+})
+
+app.get('/max_testno', function(req,res){
+    var sql = "SELECT testno=MAX(TEST_NO) FROM TESTDATA"
+    console.log(`SQL is` + sql)
+    var con= mysql.createconnection ({
+        host: "localhost",
+        port: "3306",
+        database: "wizlearn",
+        user: "root",
+        password: "DkFjGh10#"
+    });
+    con.connect(function (err) {
+			if (err) throw err;
+			con.query(sql, function(err,result){
+							if err throw err;
+							console.log(result);
+							max_testno = result.testno;
+							max_testno++
+							});
+			});
+    mysql.close()
+	res.send(max_testno)
+})
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
