@@ -3,70 +3,117 @@
 <title> Demo Test</title>
 </head>
 
+<script>
+
+var One = document.getElementById('One');
+var Two = document.getElementById('Two');
+var Three = document.getElementById('Three');
+var Four = document.getElementById('Four');
+var Five = document.getElementById('Five');
+
+ 
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "G@nesha133"
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+  
+  
+	
+  var sql = "CREATE TABLE student-test (id INT AUTO_INCREMENT PRIMARY KEY questionno VARCHAR(25Five), submittedoption VARCHAR(25Five), correctoption VARCHAR(25Five) )"; 
+  con.query(sql, function(err,result){
+	 if (err) throw err; 
+	 
+  });
+  
+  var sql = "INSERT INTO student-test (submittedoption) VALUES ?";
+  var values  = [
+	['One'];
+	['Two'];
+	['Three'];
+	['Four'];
+	['Five'];
+  
+  ];
+  
+  });
+});
+
+</script>
+
+
+
 <body>
-<h2> Attempt all questions</h2>
+<hTwo> Attempt all questions</hTwo>
 <p></p>
-<form action=http://127.0.0.1:5000/student_register method="POST">
 
-Question 1: Which of these is a prime number? 
-<br />
-<input type= "radio" name=1 value= "a"> 13
-<br />
-<input type="radio" name=1 value="b"> 22
-<br />
-<input type="radio" name=1 value="c"> 25
-<br />
-<input type="radio" name=1 value ="d"> 30
-<br />
+<form action="http://localhost:8080" method="POST">
 
-Question 2: Which of these is a square of another number? 
+<div class="form">
+Question One: Which of these is a prime number? 
 <br />
-<input type= "radio" name=2 value= "a"> 13
+<input type= "radio" id="One" value= "a"> 13
 <br />
-<input type="radio" name=2 value="b"> 22
+<input type="radio" id="One" value="b"> 22
 <br />
-<input type="radio" name=2 value="c"> 25
+<input type="radio" id="One" value="c"> 25
 <br />
-<input type="radio" name=2 value ="d"> 30
+<input type="radio" id="One" value ="d"> 30
 <br />
 
-Question 3: Which of these is not a prime number? 
+Question Two: Which of these is a square of another number? 
 <br />
-<input type= "radio" name=3 value= "a"> 13
+<input type= "radio" id="Two" value= "a"> 13
 <br />
-<input type="radio" name=3 value="b"> 22
+<input type="radio" id="Two" value="b"> 22
 <br />
-<input type="radio" name=3 value="c"> 11
+<input type="radio" id="Two" value="c"> 25
 <br />
-<input type="radio" name=3 value ="d"> 19
-<br />
-
-Question 4: Which of these is the cube of another number? 
-<br />
-<input type= "radio" name=4 value= "a"> 13
-<br />
-<input type="radio" name=4 value="b"> 27
-<br />
-<input type="radio" name=4 value="c"> 25
-<br />
-<input type="radio" name=4 value ="d"> 30
+<input type="radio" id="Two" value ="d"> 30
 <br />
 
-Question 5: Which of these is not a square of another number? 
+Question Three: Which of these is not a prime number? 
 <br />
-<input type= "radio" name=5 value= "a"> 16
+<input type= "radio" id="Three" value= "a"> 13
 <br />
-<input type="radio" name=5 value="b"> 22
+<input type="radio" id="Three" value="b"> 22
 <br />
-<input type="radio" name=5 value="c"> 25
+<input type="radio" id="Three" value="c"> 11
 <br />
-<input type="radio" name=5 value ="d"> 36
+<input type="radio" id="Three" value ="d"> 19
+<br />
+
+Question Four: Which of these is the cube of another number? 
+<br />
+<input type= "radio" id="Four" value= "a"> 13
+<br />
+<input type="radio" id="Four" value="b"> 27
+<br />
+<input type="radio" id="Four" value="c"> 25
+<br />
+<input type="radio" id="Four" value ="d"> 30
+<br />
+
+Question Five: Which of these is not a square of another number? 
+<br />
+<input type= "radio" id="Five" value= "a"> 16
+<br />
+<input type="radio" id="Five" value="b"> 22
+<br />
+<input type="radio" id="Five" value="c"> 25
+<br />
+<input type="radio" id="Five" value ="d"> 36
 <br />
 
 
 
-<input type="submit" value="submit" >
-
+<input type="submit" value="Submit" >
 
 </form>
 
