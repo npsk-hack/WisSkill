@@ -5,52 +5,40 @@
 
 <script>
 
-var One = document.getElementById('One').value;
-var Two = document.getElementById('Two').value;
-var Three = document.getElementById('Three').value;
-var Four = document.getElementById('Four').value;
-var Five = document.getElementById('Five').value;
+function submit(){
+    
+    var one = document.getElementById('One').value;
+    var two = document.getElementById('Two').value;
+    var three = document.getElementById('Three').value;
+	var four = document.getElementById('Four').value;
+	var five = document.getElementById('Five').value;
+    
+    var sql = `INSERT INTO student-test VALUES ('${one}','${two}','${three}','${four}','${five}');`
+    
+    var submittedans = {
+        "One": one,
+        "Two": two,
+        "Three": three,
+        "Four": four,
+        "Five": five,
+    }
+    send_message(msg)
+    window.location = "C:/Users/lenovo/Downloads/WisSkill-master/WisSkill-master/app/templates/submit.html"
+}
+function send_message(msg){
+    var request = new XMLHttpRequest;
+    msg = JSON.stringify(msg)
+    request.open("GET", "http://localhost:3000/teacher_requests"+"?msg="+msg, true);
+    request.send(msg)
+}
 
- 
-var mysql = require('mysql');
-
-var con = mysql.createConnection({
-  host: "localhost",
-  user: "Username",
-  password: "Password"
-});
-
-con.connect(function(err) {
-  if (err) throw err;
-  )
-  
-  
-	
-  var sql = "CREATE TABLE student-test (id INT AUTO_INCREMENT PRIMARY KEY questionno VARCHAR(25Five), submittedoption VARCHAR(25Five), correctoption VARCHAR(25Five) )"; 
-  con.query(sql, function(err,result){
-	 if (err) throw err; 
-	 
-  });
-  
-  var sql = "INSERT INTO student-test (submittedoption) VALUES ?";
-  var values  = [
-	['One'];
-	['Two'];
-	['Three'];
-	['Four'];
-	['Five'];
-  
-  ];
-  
-  });
-});
 
 </script>
 
 
 
 <body>
-<h2> Attempt all questions</h2>
+<hTwo> Attempt all questions</hTwo>
 <p></p>
 
 <form action="http://localhost:8080" method="POST">
