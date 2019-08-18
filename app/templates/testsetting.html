@@ -1,0 +1,72 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="c:/vaibhav/WisSkill/WisSkill-master/app/css/styles.css">
+    <title>Test Entry</title>
+</head>
+
+<script>
+
+function validate_qpaper(){	
+	
+	var question = document.getElementsByName('question[]');
+    var option_a = document.getElementsByName('option_a[]');
+	var option_b = document.getElementsByName('option_b[]');
+	var option_c = document.getElementsByName('option_c[]');
+	var option_d = document.getElementsByName('option_d[]');
+	var correct_option = document.getElementsByName('correct_option[]');
+	var question_no = new Array();
+	var i;
+	
+	alert(question.length);
+	
+
+		for (i = 0; i < question.length; i++) {
+			//alert(question[i].value);
+			//alert(option_a[i].value);	
+			
+				
+		}
+}	
+</script>
+
+<body>
+<form action=http://127.0.0.1:5000/question_paper method="POST"> 
+<h1 align="center"> Create an MCQ Test </h1>
+<input type="text" id="demo" maxlength=200 value=""><br>
+   <fieldset>
+        <legend>Question 1</legend>
+            <textarea rows=8 cols=100 maxlength=1000 name="question[]"></textarea><br>
+			a): <input type="text" name="option_a[]" maxlength=200 value=""><br>
+			b): <input type="text" name="option_b[]" maxlength=200 value=""><br>
+			c): <input type="text" name="option_c[]" maxlength=200 value=""><br>
+			d): <input type="text" name="option_d[]" maxlength=200 value=""><br>
+			Correct Option : <select name="correct_option[]">
+								<option value="a">a</option>
+								<option value="b">b</option>
+								<option value="c">c</option>
+								<option value="d">d</option>
+							 </select><br>
+			
+    </fieldset>
+	<p></p>
+	<fieldset>
+		<legend>Question 2</legend>
+            <textarea rows=8 cols=100 maxlength=1000 name="question[]"></textarea><br>
+			a): <input type="text" name="option_a[]" maxlength=200 value=""><br>
+			b): <input type="text" name="option_b[]" maxlength=200 value=""><br>
+			c): <input type="text" name="option_c[]" maxlength=200 value=""><br>
+			d): <input type="text" name="option_d[]" maxlength=200 value=""><br>
+			Correct Option : <select name="correct_option[]">
+								<option value="a">a</option>
+								<option value="b">b</option>
+								<option value="c">c</option>
+								<option value="d">d</option>
+							 </select><br>
+    </fieldset>
+<br><input type="submit" value="Submit"></input>
+</form>
+
+
+
+</body>	
+</html>
