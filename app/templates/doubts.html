@@ -1,0 +1,55 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:5000/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:5000/css/ribbon.css">
+    <title>Forum</title>
+</head>
+
+<script>
+    window.onload = function(){
+        answeredDoubts = JSON.parse(document.getElementById('doubts').value);
+        for(var i=0;i<answeredDoubts.length;i++){
+            console.log(answeredDoubts)
+            answer = answeredDoubts[i][5]
+            console.log(answer)
+            alert(`You have an answer for you question regarding the subject ${answeredDoubts[i][1]}. The answer is :- \n ${answer}`)
+            sendRequest(answeredDoubts[i])
+            delete answer
+        }
+    }
+
+    function sendRequest(d){
+        var request = new XMLHttpRequest;
+        alert("SENDING REQ")
+        alert(d)
+        request.open("POST", "http://localhost:3000/delete_doubt", true)
+        request.setRequestHeader('Content-Type', 'application/json')
+        request.send(JSON.stringify(d));
+        alert("req sent")
+    }
+</script>
+
+<body>
+    <div class="center"><div class="rainbow"><h2>Forum</h2></div></div>
+    <div class="ribbon">
+        <a href="http://127.0.0.1:5000/home"><button class="ribbonbutton"><div class="whitetxt">Home</div></button></a>
+        <a href="http://127.0.0.1:5000/forum"><button class="ribbonbutton"><div class="whitetxt">Forum (Doubts and Answers)</div></button></a>
+        <a href="http://127.0.0.1:5000/open_test"><button class="ribbonbutton"><div class="whitetxt">Test</div></button></a>            
+        <a href="http://127.0.0.1:5000/logout"><button class="ribbonbutton" onclick=""><div class="whitetxt">Log out</div></button></a>              
+    </div><br><br><br><br> 
+
+    <fieldset>
+        <legend>Please enter the details</legend><br>
+        <form id="doubt_form" action=http://127.0.0.1:5000/add_doubt method="POST">
+            Subject: <input type="text" name="subject" form="doubt_form"><br><br>
+            What is your question? <br><textarea rows='10' cols="100" form="doubt_form" wrap="soft" required name="doubt"></textarea><br><br><br>
+            <button type="submit">Submit</button>
+        </form>
+    </fieldset>
+
+</body>
+
+<div hidden><input value="{{ doubts }}" id="doubts"></div>
+
+</html>

@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:5000/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:5000/css/ribbon.css">
+    <title>Answer Doubts</title>
+</head>
+
+
+
+<body>
+    <div class="center"><div class="rainbow"><h2>Forum</h2></div></div>
+    <div class="ribbon">
+        <a href="http://127.0.0.1:5000/home"><button class="ribbonbutton"><div class="whitetxt">Home</div></button></a>
+        <a href="http://127.0.0.1:5000/forum"><button class="ribbonbutton"><div class="whitetxt">Forum (Doubts and Answers)</div></button></a>
+        <a href="http://127.0.0.1:5000/open_test"><button class="ribbonbutton"><div class="whitetxt">Test</div></button></a>            
+        <a href="http://127.0.0.1:5000/logout"><button class="ribbonbutton" onclick=""><div class="whitetxt">Log out</div></button></a>              
+    </div><br><br><br><br>
+
+    Dear {{ array[0].teacher.name }}, you have {{ no_ofDoubts }} doubts to clear. <br><br>
+    
+    {% for entry in array %}
+    <p>
+        One doubt from {{ entry.student.name }} of {{ entry.student.grade }}{{ entry.student.section }}. <br>
+        His/her question is regarding {{ entry.content.subject }}. <br>
+        The question itself is <br>     <div style="margin-left: 15px;">{{ entry.content.doubt }}</div>
+        <fieldset>
+            <form id="answer_form" action=http://127.0.0.1:5000/answer_doubt method="POST">
+                Answer:<textarea rows='10' cols="100" form="answer_form" wrap="soft" name="answer"></textarea>
+                <input type="hidden" value="{{ entry.content.id }}" name="id">
+                <button type="submit">Submit</button>
+            </form>
+        </fieldset>
+    </p><hr>
+    {% endfor %}
+</body>
+
+</html>

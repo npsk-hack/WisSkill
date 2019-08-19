@@ -30,7 +30,7 @@ window.onload = function(){
                     string = JSON.stringify(requests[i])
                     sql = JSON.stringify(requests[i].sql_statement)
                     console.log("SQL is "+requests[i])
-                    base = `Request is => ${requests[i].string}    <button onclick='addRequest(${JSON.stringify(requests[i])})'>Aprove</button>   <button onclick='deleteRequest(${JSON.stringify(requests[i])}})'>Reject</button>`
+                    base = `Request is => ${requests[i].string}    <button onclick='addRequest(${JSON.stringify(requests[i])})'>Aprove</button>   <button onclick='deleteRequest(${JSON.stringify(requests[i])})'>Reject</button>`
                     ul.push(base);
                     delete string
                 };
@@ -51,18 +51,21 @@ window.onload = function(){
 };
 
 function addRequest(request_item){
-    var name = request_item['name']
     var request = new XMLHttpRequest;
-    request.open("GET", "http://localhost:3000/add_register_request"+"?request="+request_item)
-    request.send(request_item);
+    console.log(request_item)
+    request.open("POST", "http://localhost:3000/add_register_request", true)
+    request.setRequestHeader('Content-Type', 'application/json')
+    request.send(JSON.stringify(request_item));
     console.log("Sent");
     document.location.reload(true);
 };
 
 function deleteRequest(request_item){
     var request = new XMLHttpRequest;
-    request.open("GET", "http://localhost:3000/delete_register_request"+"?request="+request_item)
-    request.send(request_item);
+    console.log(request_item)
+    request.open("POST", "http://localhost:3000/delete_register_request", true)
+    request.setRequestHeader('Content-Type', 'application/json')
+    request.send(JSON.stringify(request_item));
     console.log(`${request_item} is deleted`);
     document.location.reload(true);
 };
@@ -71,11 +74,11 @@ function deleteRequest(request_item){
 <body>
     <div class="center"><div class="rainbow"><h1>Home</h1></div></div>
     <div class="ribbon">
-        <button class="ribbonbutton marginleft"><div class="whitetxt">Home</div></button>           
-        <button class="ribbonbutton" ><div class="whitetxt">About the Website</div></button>            
-        <button class="ribbonbutton marginright"><div class="whitetxt">Contact Us</div></button>            
+        <a href="http://127.0.0.1:5000/home"><button class="ribbonbutton"><div class="whitetxt">Home</div></button></a>
+        <a href="http://127.0.0.1:5000/forum"><button class="ribbonbutton"><div class="whitetxt">Forum (Doubts and Answers)</div></button></a>
+        <a href="http://127.0.0.1:5000/open_test"><button class="ribbonbutton"><div class="whitetxt">Test</div></button></a>            
         <a href="http://127.0.0.1:5000/logout"><button class="ribbonbutton" onclick=""><div class="whitetxt">Log out</div></button></a>              
-    </div>
+    </div><br><br><br><br>
     
     <br><br><br><br>
 
