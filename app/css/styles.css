@@ -49,7 +49,7 @@ legend{
 }
 
 .background_paper{
-  background-image: url('static/wrinkled_ivory_colored_paper_background.jpg');
+  background-image: url('http://127.0.0.1:5000/static/wrinkled_ivory_colored_paper_background.jpg');
 }
 
 .right_align{
