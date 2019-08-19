@@ -12,6 +12,11 @@ function submit(){
     var three = document.getElementById('Three').value;
 	var four = document.getElementById('Four').value;
 	var five = document.getElementById('Five').value;
+	var six = document.getElementById('Six').value;
+	var seven = document.getElementById('Seven').value;
+	var eight = document.getElementById('Eight').value;
+	var nine = document.getElementById('Nine').value;
+	var ten = document.getElementById('Ten').value;
     
     var insert = `INSERT INTO student-test VALUES ('${questionnumber}','${submittedans}');`
     
@@ -21,6 +26,11 @@ function submit(){
         3: three,
         4: four,
         5: five,
+		6: six,
+		7: seven,
+		8: eight,
+		9: nine,
+		10:ten
     }
     send_message(msg)
     window.location = "C:/Users/lenovo/Downloads/WisSkill-master/WisSkill-master/app/templates/submit.html"
@@ -99,10 +109,66 @@ function send_message(msg){
 <input type="radio" name = 5 id="Five" value ="d"> {{ option_d[4] }}
 <br />
 
+{{ question_no[5] }} : {{ question[5] }} 
+<br />
+<input type= "radio" name = 6 id="Six" value= "a"> {{ option_a[5] }}
+<br />
+<input type="radio" name = 6  id="Six" value="b"> {{ option_b[5] }}
+<br />
+<input type="radio" name = 6  id="Six" value="c"> {{ option_c[5] }}
+<br />
+<input type="radio" name = 6  id="Six" value ="d"> {{ option_d[5] }}
+<br />
+
+{{ question_no[6] }} : {{ question[6] }} 
+<br />
+<input type= "radio" name = 7 id="Seven" value= "a"> {{ option_a[6] }}
+<br />
+<input type="radio" name = 7 id="Seven" value="b"> {{ option_b[6] }}
+<br />
+<input type="radio" name = 7 id="Seven" value="c"> {{ option_c[6] }}
+<br />
+<input type="radio" name = 7 id="Seven" value ="d"> {{ option_d[6] }}
+<br />
+
+{{ question_no[7] }} : {{ question[7] }}
+<br />
+<input type= "radio" name = 8 id="Eight" value= "a"> {{ option_a[7] }}
+<br />
+<input type="radio" name = 8 id="Eight" value="b"> {{ option_b[7] }}
+<br />
+<input type="radio" name = 8 id="Eight" value="c"> {{ option_c[7] }}
+<br />
+<input type="radio" name = 8 id="Eight" value ="d"> {{ option_d[7] }}
+<br />
+
+{{ question_no[8] }} : {{ question[8] }} 
+<br />
+<input type= "radio" name = 9 id="Nine" value= "a"> {{ option_a[8] }}
+<br />
+<input type="radio" name = 9 id="Nine" value="b"> {{ option_b[8] }}
+<br />
+<input type="radio" name = 9 id="Nine" value="c"> {{ option_c[8] }}
+<br />
+<input type="radio" name = 9 id="Nine" value ="d"> {{ option_d[8] }}
+<br />
+
+{{ question_no[9] }} : {{ question[9] }} 
+<br />
+<input type= "radio" name = 10 id="Ten" value= "a"> {{ option_a[9] }}
+<br />
+<input type="radio" name = 10 id="Ten" value="b"> {{ option_b[9] }}
+<br />
+<input type="radio" name = 10 id="Ten" value="c"> {{ option_c[9] }}
+<br />
+<input type="radio" name = 10 id="Ten" value ="d"> {{ option_d[9] }}
+<br />
 
 
-<input type="submit" value="Submit" >
-<a href = "Score.html"></a>
+
+
+<input type="submit" value="submit" >
+
 
 </form>
 
