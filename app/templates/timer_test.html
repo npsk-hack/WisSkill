@@ -1,0 +1,47 @@
+<html>
+<head>
+<script>
+    var interval;
+    var minutes = 10;
+    var seconds = 0;
+	var minute_text;
+	var second_text;
+	
+    window.onload = function() {
+        countdown('countdown');
+    }
+
+    function countdown(element) {
+        interval = setInterval(function() {
+            var el = document.getElementById(element);
+            if(seconds == 0) {
+                if(minutes == 0) {
+                    el.innerHTML = "Time Up!";  
+                    alert("Time Up!");
+                    clearInterval(interval);
+                    return;
+                } else {
+                    minutes--;
+                    seconds = 60;
+                }
+            }
+			if (seconds == 60) {
+				second_text = '00'
+				minute_text = (minutes + 1) < 10 ? '0'+ (minutes + 1) : (minutes + 1) ;
+				}
+			else {
+				minute_text = minutes < 10 ? '0'+ minutes : minutes ;
+				second_text = seconds < 10 ? '0'+ seconds : seconds;
+				}
+
+			el.innerHTML = 'Time left: ' + minute_text + ":" + second_text;
+			document.title = 'Time left: ' + minute_text + ":" + second_text;
+            seconds--;
+        }, 1000);
+    }
+</script>
+</head>
+<body>
+<div id='countdown' style="font-family:helvetica; font-size:20px; color:red; font-weight: bold"></div>
+</body>	
+</html>
