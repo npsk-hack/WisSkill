@@ -190,17 +190,51 @@ def logout():
         return render_template('login.html')
     return "Error"
 
-def answercheck(s, c):
-        score = 0
-        s = s.replace('&','')
-        s = s.replace('=','')
-        print (s)
-        print (c)
 
-        for x,y in zip(s,c):
-                print (x)
-                print (y)
-                if x == y:
-                        score+=1
-                        score = int (score/2)
-        return score
+
+@app.route('/submittest')
+def answer_check() :
+	
+	
+	my db = mysql.connector.connect(host="localhost ", user = "root", passwd = "insertpassword", database = "wizlearn")
+	
+	my cursor.execute("SELECT submittedans FROM StudentTestData")
+	x = str(mycursor.fetchall())
+	app.logger.debug(wm)
+	
+	my cursor.execute("SELECT correctans FROM StudentTestData")
+	y = str(mycursor.fetchall())
+	app.logger.debug(wm)
+	
+	
+	for a,b in zip(x,y):
+		if a==b :
+			score+=1
+	return score
+
+@app.route('/demo')
+def updatequestion() :
+	
+	
+	my db = mysql.connector.connect(host="localhost ", user = "root", passwd = "insertpassword", database = "wizlearn")
+	
+	my cursor.execute("SELECT question_no FROM TestData  WHERE test_no = (SELECT max(test_no) from TestData)")
+	question_no = list(mycursor.fetchall())
+	
+	my cursor.execute("SELECT question FROM TestData WHERE test_no = (SELECT max(test_no) from TestData) ")
+	question = list(mycursor.fetchall())
+	
+	my cursor.execute("SELECT option_a FROM TestData WHERE test_no = (SELECT max(test_no) from TestData) ")
+	option_a = list(mycursor.fetchall())
+	
+	my cursor.execute("SELECT option_b FROM TestData WHERE test_no = (SELECT max(test_no) from TestData) ")
+	option_b = list(mycursor.fetchall())
+	
+	my cursor.execute("SELECT option_c FROM TestData WHERE test_no = (SELECT max(test_no) from TestData) ")
+	option_c = list(mycursor.fetchall())
+	
+	my cursor.execute("SELECT option_d FROM TestData WHERE test_no = (SELECT max(test_no) from TestData) ")
+	option_d = list(mycursor.fetchall())
+	
+	return question_no , question , option_a , option_b , option_c , option_d
+;
